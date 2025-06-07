@@ -110,9 +110,9 @@ const Login = () => {
 
   return (
     <div className="flex items-center justify-center min-h-screen w-screen bg-orange-500">
-      <div className="border-4 h-[300px] w-[400px] m-5 rounded-[50px] bg-white hover:shadow-xl/20 duration-300 group relative">
+      <div className="border-4 h-[200px] w-[400px] m-5 rounded-[50px] bg-white hover:shadow-xl/20 duration-300 group relative">
         <form
-          className="absolute p-5 rounded-[45px] inset-1 flex flex-col gap-5 items-center justify-center"
+          className="absolute p-5 rounded-[45px] inset-1 flex flex-col gap-5 items-center justify-around"
           onSubmit={(e) => e.preventDefault()} // Just in case someone presses enter
         >
           {/* Role Selection */}
@@ -120,6 +120,7 @@ const Login = () => {
             {['Admin', 'Manager', 'Employee'].map((r) => (
               <label key={r} className="flex items-center gap-1">
                 <input
+                  className="accent-black"
                   type="radio"
                   name="role"
                   checked={role === r}
@@ -169,7 +170,7 @@ const Login = () => {
             <button
               onClick={handleSend}
               type="button"
-              className="border-1 rounded-full bg-white text-black hover:bg-black hover:text-white duration-200 w-full h-10"
+              className="border-1 rounded-full hover:bg-white hover:text-black bg-black text-white duration-200 w-full h-10"
             >
               Send OTP
             </button>
@@ -181,7 +182,7 @@ const Login = () => {
               className={`border-1 rounded-full ${
                 isVerifying 
                   ? 'bg-gray-300 text-gray-500 cursor-not-allowed' 
-                  : 'bg-white text-black hover:bg-black hover:text-white'
+                  : 'hover:bg-white hover:text-black bg-black text-white'
               } duration-200 w-full h-10`}
             >
               {isVerifying ? 'Verifying...' : 'Verify OTP'}
